@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: incubadora_user
+      POSTGRES_PASSWORD: super_password
+      POSTGRES_DB: incubadora_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  backend:
+      build: ./backend
+      ports:
+        - "8000:8000"
+      environment:
+        - DATABASE_URL=postgresql://incubadora_user:super_password@db:5432/incubadora_db
+        - JWT_SECRET=clave_super_secreta_incubadora # <-- ESTO SALVA EL DÍA
+      volumes:
+        - ./backend:/app:z
+      depends_on:
+        - db
+
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      # AQUI ESTA EL CAMBIO: agregamos :z al final
+      - ./frontend:/app:z
+      - /app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  pg_data:

@@ -3,6 +3,14 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
 from app.routers import auth, admin
+from app.database import engine, Base
+# IMPORTANTE: Debes importar los modelos para que SQLAlchemy sepa que existen
+from app.models.usuario import Usuario
+from app.models.proyecto import Proyecto
+
+# Esta línea le dice a Postgres que cree las tablas si no existen
+Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI(title="Incubadora TecNM Saltillo — API")
 
