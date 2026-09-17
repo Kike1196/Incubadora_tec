@@ -6,5 +6,10 @@ export default defineConfig({
   server: {
     host: true,
     port: 5173,
+    // Docker Desktop on Windows may not forward file change events.
+    watch: {
+      usePolling: true,
+      interval: 500,
+    },
   },
 });

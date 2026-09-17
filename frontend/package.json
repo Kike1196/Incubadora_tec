@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check:interfaces": "node scripts/check-interfaces.mjs"
   },
   "dependencies": {
     "axios": "^1.6.7",

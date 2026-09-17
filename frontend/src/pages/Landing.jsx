@@ -30,10 +30,10 @@ export default function Landing() {
             <span className="text-sm text-gray-500">Incubadora ITS</span>
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#inicio">Home</a>
-            <a href="#proyectos">Proyectos</a>
+            <a href="#inicio">Inicio</a>
+            <Link to="/vista-previa/emprendedor/proyectos">Proyectos</Link>
             <a href="#eventos">Eventos</a>
-            <a href="#tutorias">Tutorías</a>
+            <Link to="/vista-previa/emprendedor/tutorias">Tutorías</Link>
           </nav>
           <div className="flex items-center gap-3">
             <Link to="/login" className="text-sm text-institucional">
@@ -49,7 +49,7 @@ export default function Landing() {
         </div>
       </header>
 
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      <section id="inicio" className="max-w-6xl mx-auto px-6 py-20">
         <p className="text-sm text-institucional mb-3">
           Instituto Tecnológico de Saltillo
         </p>
@@ -60,6 +60,11 @@ export default function Landing() {
           Evaluamos la factibilidad de tu proyecto y te acompañamos con
           asesoría legal, administrativa y de financiamiento.
         </p>
+        <div className="mt-7 flex flex-wrap gap-3">
+          <Link to="/registro" className="button">Comenzar mi proyecto</Link>
+          <Link to="/vista-previa/emprendedor/inicio" className="button secondary">Explorar interfaces de demostración →</Link>
+        </div>
+        <p className="mt-3 text-xs text-gray-500">Vista previa de Emprendedor, Coordinador y Externo con datos de ejemplo.</p>
       </section>
 
       <section id="eventos" className="max-w-6xl mx-auto px-6 pb-20">
