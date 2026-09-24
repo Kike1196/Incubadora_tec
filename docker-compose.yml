@@ -6,21 +6,29 @@ services:
       POSTGRES_PASSWORD: super_password
       POSTGRES_DB: incubadora_db
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5433:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U incubadora_user -d incubadora_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   backend:
       build: ./backend
+      command: ["sh", "-c", "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"]
       ports:
         - "8000:8000"
       environment:
         - DATABASE_URL=postgresql://incubadora_user:super_password@db:5432/incubadora_db
         - JWT_SECRET=clave_super_secreta_incubadora # <-- ESTO SALVA EL DÍA
+        - DEMO_PAYMENTS_ENABLED=true
       volumes:
         - ./backend:/app:z
       depends_on:
-        - db
+        db:
+          condition: service_healthy
 
 
   frontend:

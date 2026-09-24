@@ -1,14 +1,21 @@
 import uuid
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, Field, field_validator
 
 from app.models.usuario import RolUsuario
 
 
 class UsuarioCreate(BaseModel):
-    nombre: str
+    nombre: str = Field(min_length=1, max_length=160)
     correo: EmailStr
-    password: str
+    password: str = Field(min_length=8)
     rol: RolUsuario
+
+    @field_validator("password")
+    @classmethod
+    def check_password(cls, value):
+        if len(value.encode()) > 72:
+            raise ValueError("La contraseña no puede superar 72 bytes.")
+        return value
 
 
 class UsuarioOut(BaseModel):

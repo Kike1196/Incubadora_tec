@@ -20,6 +20,7 @@ class Usuario(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     nombre = Column(String, nullable=False)
+    especialidad = Column(String, nullable=False, default="", server_default="")
     correo = Column(String, unique=True, nullable=False, index=True)
     password_hash = Column(String, nullable=False)
     rol = Column(Enum(RolUsuario), nullable=False)

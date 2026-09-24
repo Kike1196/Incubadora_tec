@@ -1,0 +1,883 @@
+{
+  "code": "DGEST-MIdE-CI-F-01",
+  "revision": "1.0",
+  "sections": [
+    {
+      "id": "identificacion",
+      "title": "PARTE I. IDENTIFICACIÓN DEL FORMATO",
+      "fields": [
+        {
+          "key": "fecha",
+          "label": "Fecha",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "plantel",
+          "label": "Plantel",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "folio",
+          "label": "Folio",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "incubadora",
+          "label": "Incubadora",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "numero_solicitantes",
+          "label": "Número de solicitantes",
+          "type": "number",
+          "required": true
+        }
+      ],
+      "admin": false
+    },
+    {
+      "id": "principal",
+      "title": "PARTE II. DATOS GENERALES DEL SOLICITANTE PRINCIPAL",
+      "fields": [
+        {
+          "key": "primer_nombre",
+          "label": "Primer nombre",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "segundo_nombre",
+          "label": "Segundo nombre",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "apellido_paterno",
+          "label": "Apellido paterno",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "apellido_materno",
+          "label": "Apellido materno",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "nacimiento",
+          "label": "Fecha de nacimiento",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "estado_civil",
+          "label": "Estado civil",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "genero",
+          "label": "Género",
+          "type": "select",
+          "required": true,
+          "options": [
+            "M",
+            "F"
+          ]
+        },
+        {
+          "key": "discapacidad",
+          "label": "Padece alguna capacidad diferente",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sí",
+            "No"
+          ]
+        },
+        {
+          "key": "especifique",
+          "label": "Especifique",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "rfc",
+          "label": "RFC con homoclave",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "curp",
+          "label": "CURP",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "calle",
+          "label": "Domicilio / Calle",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "exterior",
+          "label": "No. exterior",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "interior",
+          "label": "No. interior",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "cp",
+          "label": "C.P.",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "colonia",
+          "label": "Colonia",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "municipio",
+          "label": "Municipio",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "estado",
+          "label": "Estado",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "telefono_residencial",
+          "label": "Teléfono residencial",
+          "type": "tel",
+          "required": false
+        },
+        {
+          "key": "telefono_celular",
+          "label": "Teléfono celular",
+          "type": "tel",
+          "required": false
+        },
+        {
+          "key": "ingreso_personal",
+          "label": "Ingreso mensual personal",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "ingreso_familiar",
+          "label": "Ingreso mensual familiar",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "dependientes_consanguineos",
+          "label": "Dependientes económicos: consanguíneos",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "dependientes_otros",
+          "label": "Dependientes económicos: otros",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "dependientes_total",
+          "label": "Dependientes económicos: total",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "jornada",
+          "label": "Jornada laboral actual",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Tiempo completo",
+            "Medio tiempo",
+            "Desempleado"
+          ]
+        },
+        {
+          "key": "correo1",
+          "label": "Correo electrónico 1",
+          "type": "email",
+          "required": true
+        },
+        {
+          "key": "correo2",
+          "label": "Correo electrónico 2",
+          "type": "email",
+          "required": false
+        },
+        {
+          "key": "firma",
+          "label": "Firma del solicitante (nombre completo)",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "estudios",
+          "label": "Grado máximo de estudios",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "especialidad",
+          "label": "Especialidad",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "institucion",
+          "label": "Institución de egreso",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "egreso",
+          "label": "Fecha de egreso",
+          "type": "date",
+          "required": false
+        }
+      ],
+      "admin": false
+    },
+    {
+      "id": "socio",
+      "title": "PARTE III. DATOS GENERALES DEL SOLICITANTE SOCIO",
+      "fields": [
+        {
+          "key": "primer_nombre",
+          "label": "Primer nombre",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "segundo_nombre",
+          "label": "Segundo nombre",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "apellido_paterno",
+          "label": "Apellido paterno",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "apellido_materno",
+          "label": "Apellido materno",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "nacimiento",
+          "label": "Fecha de nacimiento",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "estado_civil",
+          "label": "Estado civil",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "genero",
+          "label": "Género",
+          "type": "select",
+          "required": true,
+          "options": [
+            "M",
+            "F"
+          ]
+        },
+        {
+          "key": "discapacidad",
+          "label": "Padece alguna capacidad diferente",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sí",
+            "No"
+          ]
+        },
+        {
+          "key": "especifique",
+          "label": "Especifique",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "rfc",
+          "label": "RFC con homoclave",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "curp",
+          "label": "CURP",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "calle",
+          "label": "Domicilio / Calle",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "exterior",
+          "label": "No. exterior",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "interior",
+          "label": "No. interior",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "cp",
+          "label": "C.P.",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "colonia",
+          "label": "Colonia",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "municipio",
+          "label": "Municipio",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "estado",
+          "label": "Estado",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "telefono_residencial",
+          "label": "Teléfono residencial",
+          "type": "tel",
+          "required": false
+        },
+        {
+          "key": "telefono_celular",
+          "label": "Teléfono celular",
+          "type": "tel",
+          "required": false
+        },
+        {
+          "key": "ingreso_personal",
+          "label": "Ingreso mensual personal",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "ingreso_familiar",
+          "label": "Ingreso mensual familiar",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "dependientes_consanguineos",
+          "label": "Dependientes económicos: consanguíneos",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "dependientes_otros",
+          "label": "Dependientes económicos: otros",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "dependientes_total",
+          "label": "Dependientes económicos: total",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "jornada",
+          "label": "Jornada laboral actual",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Tiempo completo",
+            "Medio tiempo",
+            "Desempleado"
+          ]
+        },
+        {
+          "key": "correo1",
+          "label": "Correo electrónico 1",
+          "type": "email",
+          "required": true
+        },
+        {
+          "key": "correo2",
+          "label": "Correo electrónico 2",
+          "type": "email",
+          "required": false
+        },
+        {
+          "key": "firma",
+          "label": "Firma del solicitante (nombre completo)",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "estudios",
+          "label": "Grado máximo de estudios",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "especialidad",
+          "label": "Especialidad",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "institucion",
+          "label": "Institución de egreso",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "egreso",
+          "label": "Fecha de egreso",
+          "type": "date",
+          "required": false
+        }
+      ],
+      "admin": false
+    },
+    {
+      "id": "empresa",
+      "title": "PARTE IV. DATOS GENERALES DEL PROYECTO / EMPRESA",
+      "fields": [
+        {
+          "key": "nombre",
+          "label": "Nombre del proyecto / Razón social",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "rfc",
+          "label": "RFC",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "calle",
+          "label": "Domicilio / Calle",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "interior",
+          "label": "No. interior",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "exterior",
+          "label": "No. exterior",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "cp",
+          "label": "C.P.",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "colonia",
+          "label": "Colonia",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "municipio",
+          "label": "Municipio",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "estado",
+          "label": "Estado",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "telefono",
+          "label": "Teléfono principal",
+          "type": "tel",
+          "required": false
+        },
+        {
+          "key": "fax",
+          "label": "Fax",
+          "type": "tel",
+          "required": false
+        },
+        {
+          "key": "correo",
+          "label": "Correo electrónico",
+          "type": "email",
+          "required": false
+        },
+        {
+          "key": "web",
+          "label": "Web",
+          "type": "url",
+          "required": false
+        }
+      ],
+      "admin": false
+    },
+    {
+      "id": "empleos",
+      "title": "PARTE V. PUESTOS DE TRABAJO DEL PROYECTO / EMPRESA",
+      "fields": [],
+      "admin": false
+    },
+    {
+      "id": "estratificacion",
+      "title": "PARTE VI. ESTRATIFICACIÓN POR NÚMERO DE EMPLEADOS",
+      "fields": [
+        {
+          "key": "tamano",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Micro Empresa",
+            "Pequeña Empresa",
+            "Mediana Empresa"
+          ]
+        },
+        {
+          "key": "sector",
+          "label": "Sector",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Industria",
+            "Comercio",
+            "Servicios"
+          ]
+        }
+      ],
+      "admin": false
+    },
+    {
+      "id": "clasificacion",
+      "title": "PARTE VII. CLASIFICACIÓN POR GIRO Y TECNOLOGÍA EMPLEADA",
+      "fields": [
+        {
+          "key": "giro",
+          "label": "Giro",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "codigo_scian",
+          "label": "Código SCIAN",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "giro_scian",
+          "label": "Giro SCIAN",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "tecnologia",
+          "label": "Tipo de tecnología",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Tradicional",
+            "Intermedia",
+            "Alta"
+          ]
+        },
+        {
+          "key": "ventas",
+          "label": "Ventas anuales en miles de pesos",
+          "type": "select",
+          "required": true,
+          "options": [
+            "0 a 50",
+            "51 a 100",
+            "101 a 200",
+            "201 a 500",
+            "501 a 1,000",
+            "1,001 a 3,000",
+            "3,001 a 6,000",
+            "6,001 a 12,000",
+            "12,001 a 30,000",
+            "30,001 o más"
+          ]
+        }
+      ],
+      "admin": false
+    },
+    {
+      "id": "descripcion",
+      "title": "PARTE VIII. DESCRIPCIÓN GENERAL DEL PROYECTO / EMPRESA",
+      "fields": [
+        {
+          "key": "nombre",
+          "label": "1. Nombre tentativo o definitivo del negocio",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "key": "problema",
+          "label": "2. ¿Cuál es la necesidad(es) o problema(s) que has detectado y quieres satisfacer o resolver generando algún producto o servicio?",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "key": "producto",
+          "label": "3. ¿Con qué mezcla de producto(s) y servicio(s) deseas satisfacer esa necesidad o problema detectado?",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "key": "mercado",
+          "label": "4. ¿Qué extensión geográfica comprende el mercado de estos productos y/o servicios que piensas ofrecer?",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "key": "diferenciacion",
+          "label": "5. ¿Qué características y prestaciones tendrán tus productos y/o servicios que ningún otro competidor, en el mercado que describes, podrá imitar?",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "key": "ventajas",
+          "label": "6. ¿Con qué ventajas geográficas, productivas, tecnológicas, técnicas, logísticas, financieras, organizacionales, patrimoniales y legales cuentas para generar los productos y/o servicios que describes?",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "key": "experiencia",
+          "label": "7. ¿Qué experiencia práctica y profesional tienes tú, tu socio, tu familia y la familia de tu socio en el tipo de mercado dónde piensan ofrecer los productos o servicios que describes?",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "key": "experiencia_empresarial",
+          "label": "8. ¿Qué experiencia empresarial tienes tú, tu socio, tu familia y la familia de tu socio?",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "key": "motivacion",
+          "label": "9. ¿Qué te motiva crear tu propia empresa?",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Necesidad",
+            "Oportunidad",
+            "Ambas"
+          ]
+        },
+        {
+          "key": "motivacion_socio",
+          "label": "10. ¿Y cuál es la motivación de tu socio?",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Necesidad",
+            "Oportunidad",
+            "Ambas",
+            "No aplica"
+          ]
+        },
+        {
+          "key": "objetivo",
+          "label": "11. ¿Para qué deseas emprender tu propia empresa?",
+          "type": "textarea",
+          "required": true
+        }
+      ],
+      "admin": false
+    },
+    {
+      "id": "cita",
+      "title": "5. CITA CON COORDINADOR DE EMPRENDIMIENTO Y CREATIVIDAD",
+      "fields": [
+        {
+          "key": "fecha",
+          "label": "Día / Mes / Año",
+          "type": "date",
+          "required": false
+        },
+        {
+          "key": "hora",
+          "label": "Hora",
+          "type": "time",
+          "required": false
+        },
+        {
+          "key": "lugar",
+          "label": "Lugar",
+          "type": "text",
+          "required": false
+        }
+      ],
+      "admin": true
+    },
+    {
+      "id": "requisitos",
+      "title": "6. REQUISITOS DE INGRESO",
+      "fields": [],
+      "admin": false
+    },
+    {
+      "id": "control",
+      "title": "ELABORÓ / REVISÓ / REVISÓ / AUTORIZÓ",
+      "fields": [
+        {
+          "key": "elaboro_nombre",
+          "label": "Elaboró — Nombre",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "elaboro_firma",
+          "label": "Elaboró — Firma",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "elaboro_fecha",
+          "label": "Elaboró — Fecha",
+          "type": "date",
+          "required": false
+        },
+        {
+          "key": "reviso1_nombre",
+          "label": "Revisó — Nombre",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "reviso1_firma",
+          "label": "Revisó — Firma",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "reviso1_fecha",
+          "label": "Revisó — Fecha",
+          "type": "date",
+          "required": false
+        },
+        {
+          "key": "reviso2_nombre",
+          "label": "Revisó — Nombre",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "reviso2_firma",
+          "label": "Revisó — Firma",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "reviso2_fecha",
+          "label": "Revisó — Fecha",
+          "type": "date",
+          "required": false
+        },
+        {
+          "key": "autorizo_nombre",
+          "label": "Autorizó — Nombre",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "autorizo_firma",
+          "label": "Autorizó — Firma",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "autorizo_fecha",
+          "label": "Autorizó — Fecha",
+          "type": "date",
+          "required": false
+        },
+        {
+          "key": "comentarios",
+          "label": "Comentarios",
+          "type": "textarea",
+          "required": false
+        }
+      ],
+      "admin": true
+    }
+  ],
+  "documents": [
+    {
+      "key": "rfc",
+      "label": "RFC (inscripción de RFC)"
+    },
+    {
+      "key": "curp",
+      "label": "CURP"
+    },
+    {
+      "key": "identificacion",
+      "label": "Credencial del IFE (por ambos lados)"
+    },
+    {
+      "key": "acta",
+      "label": "Acta de nacimiento"
+    },
+    {
+      "key": "domicilio",
+      "label": "Comprobante de domicilio con código postal"
+    },
+    {
+      "key": "fotos",
+      "label": "2 fotografías tamaño infantil a color"
+    },
+    {
+      "key": "cv",
+      "label": "Currículo vitae (máximo 1 cuartilla)"
+    }
+  ]
+}

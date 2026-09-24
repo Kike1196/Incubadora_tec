@@ -32,36 +32,53 @@ Actualmente las coordinadoras de la incubadora gestionan todo de forma manual: r
 
 ## 📁 Estructura del proyecto
 
-```
+```text
 .
 ├── backend/
 │   ├── app/
 │   │   ├── main.py
-│   │   ├── models/          # Modelos SQLAlchemy
-│   │   ├── schemas/         # Esquemas Pydantic
-│   │   ├── routers/         # Endpoints por módulo/rol
-│   │   ├── auth/            # JWT, dependencias de autorización por rol
-│   │   ├── services/        # Lógica de negocio (Excel, PDF, pagos)
-│   │   └── database.py
-│   ├── alembic/              # Migraciones
-│   ├── requirements.txt
-│   └── .env.example
+│   │   ├── modules/
+│   │   │   ├── autenticacion/
+│   │   │   ├── coordinacion/
+│   │   │   ├── estudiantes/
+│   │   │   ├── externos/
+│   │   │   └── compartido/
+│   │   ├── models/            # Entidades comunes a los actores
+│   │   ├── schemas/           # Validación de datos
+│   │   ├── auth/              # JWT y autorización
+│   │   ├── database.py
+│   │   └── config.py
+│   ├── alembic/
+│   └── tests/
 ├── frontend/
 │   ├── src/
-│   │   ├── components/
-│   │   ├── pages/            # Vistas por rol (admin/estudiante/externo)
-│   │   ├── routes/           # Rutas protegidas por rol
-│   │   └── services/         # Cliente API
-│   ├── package.json
-│   └── .env.example
+│   │   ├── App.jsx            # Composición de rutas
+│   │   ├── modules/
+│   │   │   ├── autenticacion/
+│   │   │   ├── coordinacion/
+│   │   │   ├── estudiantes/
+│   │   │   ├── externos/
+│   │   │   ├── innovacion/
+│   │   │   └── publico/
+│   │   └── shared/            # API, portal y procesos entre actores
+│   └── scripts/               # Verificación de interfaces
 ├── docs/
-│   ├── stack-tecnologico.md
+│   ├── modulos-por-actor.md
+│   ├── uso-local.md
 │   ├── modelo-de-datos.md
-│   └── arquitectura-aws.md
-└── README.md
+│   └── datos-demo.md
+└── docker-compose.yml
 ```
 
+Consulta [la organización por actores](docs/modulos-por-actor.md) para conocer
+las responsabilidades, las dependencias compartidas y dónde agregar funciones.
+
 ## 🚀 Instalación y ejecución local
+
+El portal autenticado ya guarda los módulos en PostgreSQL. Consulta
+[la guía de uso local](docs/uso-local.md) para iniciar los servicios, cargar
+cuentas de muestra y recorrer los flujos. Las vistas previas son independientes
+y los pagos locales son de prueba, sin cobros reales.
 
 ### Requisitos previos
 
@@ -125,7 +142,7 @@ docker compose exec backend alembic upgrade head
 
 - Backend: `http://localhost:8000` (docs en `/docs`)
 - Frontend: `http://localhost:5173`
-- Postgres: `localhost:5432` (usuario/clave definidos en `docker-compose.yml`, solo para desarrollo local)
+- Postgres en Docker: `127.0.0.1:5433` desde Windows/VS Code (usuario/clave definidos en `docker-compose.yml`, SSL desactivado). Entre contenedores se usa `db:5432`.
 
 ### Comandos útiles
 
@@ -134,7 +151,7 @@ docker compose down                     # Apaga los servicios
 docker compose down -v                  # Apaga y borra también el volumen de la BD (reset total)
 docker compose logs -f backend          # Ver logs del backend en vivo
 docker compose exec backend bash        # Entrar a la terminal del contenedor backend
-docker compose exec db psql -U incubadora  # Entrar a psql directo
+docker compose exec db psql -U incubadora_user -d incubadora_db  # Entrar a psql directo
 ```
 
 ### Estructura de archivos Docker
@@ -181,17 +198,17 @@ VITE_API_URL=http://localhost:8000
 |---|---|
 | Admin (coordinadora) | Acceso total: gestión de estudiantes, proyectos, documentos, reportes, configuración |
 | Estudiante | Registro propio, subida/descarga de sus documentos, ver su estatus |
-| Externo | (definir alcance) |
+| Externo | Eventos, pagos de prueba y solicitud de ingreso |
 
 ## 📊 Roadmap
 
-- [ ] Modelo de datos y migraciones iniciales
-- [ ] Autenticación y autorización por rol
-- [ ] CRUD de estudiantes y proyectos
+- [x] Modelo de datos y migraciones
+- [x] Autenticación y autorización por rol
+- [x] Gestión de usuarios, proyectos y seguimiento con PostgreSQL
 - [ ] Subida de documentos a S3
-- [ ] Generación de reportes Excel
+- [x] Reportes exportables a CSV para Excel
 - [ ] Generación de constancias/documentos PDF
-- [ ] Dashboard con gráficas para coordinadoras
+- [x] Dashboard y reportes para coordinadoras
 - [ ] Integración de pagos (sandbox)
 - [ ] Deploy en AWS
 

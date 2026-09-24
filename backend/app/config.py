@@ -23,6 +23,7 @@ class Settings(BaseSettings):
 
     # Pagos
     stripe_secret_key: str = ""
+    demo_payments_enabled: bool = False
 
     # CORS - dominios permitidos, separados por coma
     cors_origins: str = "http://localhost:5173"

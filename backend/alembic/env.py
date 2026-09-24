@@ -9,8 +9,7 @@ from alembic import context
 from app.config import settings
 # 2. Importar el Base y tus modelos para que Alembic los pueda leer
 from app.database import Base
-from app.models.usuario import Usuario
-from app.models.proyecto import Proyecto
+import app.models  # noqa: F401 — registra todos los modelos
 
 config = context.config
 

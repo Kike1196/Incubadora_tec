@@ -1,0 +1,1 @@
+export const studentNavigation = [['inicio', 'Inicio'], ['proyectos', 'Proyectos'], ['avances', 'Mis avances'], ['eventos', 'Eventos'], ['tutorias', 'Tutorías'], ['pagos', 'Mis pagos'], ['inscripciones', 'Mis inscripciones']];
