@@ -2,8 +2,10 @@
 
 Publicado y verificado en AWS el 6 de octubre de 2026. La migración
 `295fe31b7422` está aplicada en RDS y el servicio utiliza la imagen
-`release-20261006-2323f2b`. La verificación HTTPS confirmó permisos,
+`release-20261006-a9bddb4`. La verificación HTTPS confirmó permisos,
 borradores ocultos, programación, caducidad, agenda pública y galerías.
+La revisión visual posterior verificó lectura completa, búsqueda y diseño
+adaptable en el sitio publicado.
 
 La portada da prioridad al boletín de noticias, convocatorias, avisos y próximos eventos. No enlaza a demostraciones y las rutas de vista previa no están habilitadas en la aplicación pública; únicamente se habilitan expresamente en las comprobaciones de interfaces.
 

@@ -1,5 +1,33 @@
 # Docker local y AWS con RDS
 
+## Boletín visual para todos los perfiles, 6 de octubre de 2026
+
+- Código `a9bddb4`, rama `feature/kike`. Portada de imagen por noticia,
+  tarjetas editoriales, adaptación de flyers verticales sin recortes,
+  lectura completa, enlaces públicos compartibles, búsqueda y filtros.
+  Todos los perfiles tienen **Boletín** y noticias en su inicio;
+  coordinación edita desde **Gestionar noticias**.
+- Imagen `release-20261006-a9bddb4`, digest
+  `sha256:0b891d9f0279fb6f77ebd36faea7df7a86d2ab618103d65e7ca806eda3064e6a`.
+  Se compiló el frontend y se reutilizó la imagen anterior verificada,
+  comprobando todas las dependencias fijadas. Backend y esquema sin cambios.
+- La tarea de compatibilidad `7185f7acf83848ef986e0eac301689e7` terminó con
+  código cero; RDS conserva la migración `295fe31b7422`.
+- CloudFormation terminó correctamente; ECS quedó estable con una tarea,
+  sin pendientes, revisión `:8` y rollout `COMPLETED`. El plan actualizó
+  únicamente el servicio y la definición de tarea de migración.
+- Compilación y comprobación de 56 pantallas y 53 enlaces correctas.
+  Edge en modo headless verificó con imágenes temporales interceptadas
+  fotos horizontales, flyers verticales, búsqueda sin acentos, lectura,
+  galería completa, diseño móvil y acceso de los tres perfiles; no se
+  agregaron publicaciones ni imágenes de prueba a la base.
+- La comprobación interactiva del sitio AWS verificó sus tres noticias
+  actuales, lectura completa, búsqueda y escritorio/móvil sin desbordamientos
+  ni errores JavaScript. Se sirve `/assets/index-yxTQ89S2.js`.
+- Un fallo temporal de conexión al refrescar la sesión AWS interrumpió el
+  primer proceso de espera. El reintento confirmó actualización completa y
+  servicio estable; el sitio pasó la comprobación durante ese reintento.
+
 ## Galerías publicadas el 6 de octubre de 2026
 
 - Código: `2323f2b`, rama `feature/kike`. Noticias y eventos admiten hasta
